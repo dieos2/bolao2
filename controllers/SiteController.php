@@ -183,7 +183,7 @@ class SiteController extends Controller {
           $user = User::find()->where(['=','email',$userAttributes['email']])->one();
     if($user != null){
         Yii::$app->user->login($user);  
-        copy('http://graph.facebook.com/'.$user->username.'/picture?type=large', 'images/'.$user->username.'.jpeg');
+        copy('http://graph.facebook.com/'.$user->id_facebook.'/picture?type=large', 'images/'.$user->username.'.jpeg');
         return $this->goHome();
     }
     else{
@@ -192,6 +192,7 @@ class SiteController extends Controller {
             $modelCadastro->email = $userAttributes['email'];
             $modelCadastro->username = $userAttributes['id'];
             $modelCadastro->password = $userAttributes['id'];
+            $modelCadastro->id_facebook = $userAttributes['id'];
             $nome = explode(" ",$userAttributes['name']); 
         if ($user = $modelCadastro->signup()) {
             $modelPerfil = new Perfil();
@@ -199,9 +200,9 @@ class SiteController extends Controller {
             $modelPerfil->data = date('Y-m-d');
             $modelPerfil->nome = $nome[0];
             $modelPerfil->sobrenome = $nome[1];
-            copy('http://graph.facebook.com/'.$modelCadastro->username.'/picture?type=large', 'images/'.$modelCadastro->username.'.jpeg');
+            copy('http://graph.facebook.com/'.$modelCadastro->id_facebook.'/picture?type=large', 'images/'.$modelCadastro->username.'.jpeg');
             $modelPerfil->foto = $modelCadastro->username.'.jpeg';
-			$modelPerfil->id_facebook = $modelCadastro->id_facebook;
+	//$modelPerfil->id_facebook = $modelCadastro->id_facebook;
             $modelPerfil->save();
             
             if (Yii::$app->getUser()->login($user)) {

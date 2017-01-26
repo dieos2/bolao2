@@ -64,6 +64,7 @@ class UserCadastro extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'role' => 'Role',
+            'id_facebook' => 'Id_facebook',
         ];
     }
 
