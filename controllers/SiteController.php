@@ -76,6 +76,9 @@ class SiteController extends Controller {
         }
         
         $model = new LoginForm();
+         if ($model->load(Yii::$app->request->get()) && $model->login()) {
+          return ['access_token' => Yii::$app->user->identity->getAuthKey()];
+         }
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
@@ -86,6 +89,16 @@ class SiteController extends Controller {
         }
     }
 
+     public function Autoriza() {
+       
+        
+        $model = new LoginForm();
+        
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return User::getAuthKey();
+        }
+    }
+    
     public function actionLogout() {
         Yii::$app->user->logout();
 
@@ -183,7 +196,13 @@ class SiteController extends Controller {
           $user = User::find()->where(['=','email',$userAttributes['email']])->one();
     if($user != null){
         Yii::$app->user->login($user);  
+        if($user->id_facebook != 0){
         copy('http://graph.facebook.com/'.$user->id_facebook.'/picture?type=large', 'images/'.$user->username.'.jpeg');
+        }else{
+            $user->id_facebook = $userAttributes['id'];
+            copy('http://graph.facebook.com/'.$user->id_facebook.'/picture?type=large', 'images/'.$user->username.'.jpeg');
+            $user->save();
+        }
         return $this->goHome();
     }
     else{

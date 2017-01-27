@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Notebook | Web Application</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="js/calendar/bootstrap_calendar.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <!--[if lt IE 9]>
+      <script src="/js/ie/html5shiv.js"></script>
+      <script src="/js/ie/respond.min.js"></script>
+      <script src="/js/ie/excanvas.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside-md">
+                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="http://bolaoparazao.casadogui.com.br/images/logo.png" class="m-r-sm">Notebook</a>
+                <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+          
+            <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
+                <li class="hidden-xs">
+                    <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>
+                    </a>
+                    <section class="dropdown-menu aside-xl">
+                        <section class="panel bg-white">
+                            <header class="panel-heading b-light bg-light">
+                                <strong>You have <span class="count">2</span> notifications</strong>
+                            </header>
+                            <div class="list-group list-group-alt animated fadeInRight">
+                                <a href="#" class="media list-group-item">
+                                    <span class="pull-left thumb-sm">
+                                        <img src="http://bolaoparazao.casadogui.com.br/images/avatar.jpg" alt="John said" class="img-circle">
+                                    </span>
+                                    <span class="media-body block m-b-none">
+                                        Use awesome animate.css<br>
+                                        <small class="text-muted">10 minutes ago</small>
+                                    </span>
+                                </a>
+                                <a href="#" class="media list-group-item">
+                                    <span class="media-body block m-b-none">
+                                        1.0 initial released<br>
+                                        <small class="text-muted">1 hour ago</small>
+                                    </span>
+                                </a>
+                            </div>
+                            <footer class="panel-footer text-sm">
+                                <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                                <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a>
+                            </footer>
+                        </section>
+                    </section>
+                </li>
+                <li class="dropdown hidden-xs">
+                    <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"><i class="fa fa-fw fa-search"></i></a>
+                    <section class="dropdown-menu aside-xl animated fadeInUp">
+                        <section class="panel bg-white">
+                            <form role="search">
+                                <div class="form-group wrapper m-b-none">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-info btn-icon"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </section>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="thumb-sm avatar pull-left">
+                            <img src="http://bolaoparazao.casadogui.com.br/images/avatar.jpg">
+                        </span>
+                        John.Smith <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight">
+                        <span class="arrow top"></span>
+                        <li>
+                            <a href="#">Settings</a>
+                        </li>
+                        <li>
+                            <a href="profile.html">Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="badge bg-danger pull-right">3</span>
+                                Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="docs.html">Help</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-dark lter aside-md hidden-print" id="nav">
+                    <section class="vbox">
+                     
+                        <section class="w-f scrollable">
+                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
+
+                                <!-- nav -->
+                                <nav class="nav-primary hidden-xs">
+                                    <ul class="nav">
+                                        <li class="active">
+                                            <a href="index.html" class="active">
+                                                <i class="fa fa-dashboard icon">
+                                                    <b class="bg-danger"></b>
+                                                </i>
+                                                <span>Workset</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#layout">
+                                                <i class="fa fa-columns icon">
+                                                    <b class="bg-warning"></b>
+                                                </i>
+                                                <span class="pull-right">
+                                                    <i class="fa fa-angle-down text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i>
+                                                </span>
+                                                <span>Layouts</span>
+                                            </a>
+                                            <ul class="nav lt">
+                                                <li>
+                                                    <a href="layout-c.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Color option</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="layout-r.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Right nav</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="layout-h.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>H-Layout</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#uikit">
+                                                <i class="fa fa-flask icon">
+                                                    <b class="bg-success"></b>
+                                                </i>
+                                                <span class="pull-right">
+                                                    <i class="fa fa-angle-down text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i>
+                                                </span>
+                                                <span>UI kit</span>
+                                            </a>
+                                            <ul class="nav lt">
+                                                <li>
+                                                    <a href="buttons.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Buttons</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="icons.html">
+                                                        <b class="badge bg-info pull-right">369</b>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Icons</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="grid.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Grid</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="widgets.html">
+                                                        <b class="badge  pull-right">8</b>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Widgets</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="components.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Components</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="list.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>List group</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#table">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>Table</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li>
+                                                            <a href="table-static.html">
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <span>Table static</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="table-datatable.html">
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <span>Datatable</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="table-datagrid.html">
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <span>Datagrid</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#form">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>Form</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li>
+                                                            <a href="form-elements.html">
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <span>Form elements</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="form-validation.html">
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <span>Form validation</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="form-wizard.html">
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <span>Form wizard</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="chart.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Chart</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="fullcalendar.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Fullcalendar</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="portlet.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Portlet</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="timeline.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Timeline</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#pages">
+                                                <i class="fa fa-file-text icon">
+                                                    <b class="bg-primary"></b>
+                                                </i>
+                                                <span class="pull-right">
+                                                    <i class="fa fa-angle-down text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i>
+                                                </span>
+                                                <span>Pages</span>
+                                            </a>
+                                            <ul class="nav lt">
+                                                <li>
+                                                    <a href="gallery.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Gallery</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="profile.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Profile</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="invoice.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Invoice</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="intro.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Intro</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="master.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Master</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="gmap.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Google Map</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="jvectormap.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Vector Map</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="signin.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Signin</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="signup.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>Signup</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="404.html">
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <span>404</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="mail.html">
+                                                <b class="badge bg-danger pull-right">3</b>
+                                                <i class="fa fa-envelope-o icon">
+                                                    <b class="bg-primary dker"></b>
+                                                </i>
+                                                <span>Message</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="notebook.html">
+                                                <i class="fa fa-pencil icon">
+                                                    <b class="bg-info"></b>
+                                                </i>
+                                                <span>Notes</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <!-- / nav -->
+                            </div>
+                        </section>
+
+                        <footer class="footer lt hidden-xs b-t b-dark">
+                            <div id="chat" class="dropup">
+                                <section class="dropdown-menu on aside-md m-l-n">
+                                    <section class="panel bg-white">
+                                        <header class="panel-heading b-b b-light">Active chats</header>
+                                        <div class="panel-body animated fadeInRight">
+                                            <p class="text-sm">No active chats.</p>
+                                            <p><a href="#" class="btn btn-sm btn-default">Start a chat</a></p>
+                                        </div>
+                                    </section>
+                                </section>
+                            </div>
+                            <div id="invite" class="dropup">
+                                <section class="dropdown-menu on aside-md m-l-n">
+                                    <section class="panel bg-white">
+                                        <header class="panel-heading b-b b-light">
+                                            John <i class="fa fa-circle text-success"></i>
+                                        </header>
+                                        <div class="panel-body animated fadeInRight">
+                                            <p class="text-sm">No contacts in your lists.</p>
+                                            <p><a href="#" class="btn btn-sm btn-facebook"><i class="fa fa-fw fa-facebook"></i> Invite from Facebook</a></p>
+                                        </div>
+                                    </section>
+                                </section>
+                            </div>
+                            <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
+                                <i class="fa fa-angle-left text"></i>
+                                <i class="fa fa-angle-right text-active"></i>
+                            </a>
+                            <div class="btn-group hidden-nav-xs">
+                                <button type="button" title="Chats" class="btn btn-icon btn-sm btn-dark" data-toggle="dropdown" data-target="#chat"><i class="fa fa-comment-o"></i></button>
+                                <button type="button" title="Contacts" class="btn btn-icon btn-sm btn-dark" data-toggle="dropdown" data-target="#invite"><i class="fa fa-facebook"></i></button>
+                            </div>
+                        </footer>
+                    </section>
+                </aside>
+                <!-- /.aside -->
+                <section id="content">
+                    <section class="vbox">
+                        <section class="scrollable padder">
+                            <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+                                <li><a href="index.php?r=confronto/index&id=0">Todos</a></li>
+                                <li><a href="index.php?r=confronto/index&id=1">A</a></li>
+                              
+                            </ul>
+                            <div class="m-b-md"> <h3 class="m-b-none">Confrontos</h3>
+                                <section class="panel panel-default">
+                                    <header class="panel-heading font-bold">12-06-2014 17:00 - <a id="verAposta-1" data-id="1" class="btn verAposta btn-info">Ver Apostas</a> </header>
+                                    <div class="panel-body">
+                                        <form id="1" class="form-inline" role="form" data-validate="parsley">
+                                            <div class="" style="width: 30%;display: initial;">
+                                                <label>
+                                                    <span class="label bg-dark">2</span>                                                <img src="images/brasil.png" /> Brasil
+                                                </label>
+                                            </div> <div class="form-group" style="width: 26px; display: inline-block;">
+
+                                                <input class="c1" type="text" data-notblank="true" data-maxlength="2" id="placar_casa" name="placar_casa" style="width: 100%;text-align: center;">
+                                            </div> x
+                                            <div class="form-group" style="width: 26px; display: inline-block;">
+
+                                                <input class="v1" type="text" data-notblank="true" data-maxlength="2" id="placar_visitante" name="placar_visitante" style="width: 100%;text-align: center;">
+
+                                            </div> <div class="" style="width: 30%;display: initial;">
+                                                <label>
+                                                    Croacia<img src="images/croacia.png" /> <span class="label bg-dark">1</span>
+                                                </label>
+                                            </div>
+                                            <a id="btn-1" data-idConfronto="1" data-idGrupo="1" class="btn btn-success" disabled="disabled">Apostar</a>  <a href="index.php?r=confronto/update&id=1" class="btn btn-success">Editar</a>
+
+                                            <input type="hidden" id="id_confronto" name="id_confronto" value="1" />
+                                            <input type="hidden" id="id_user" name="id_user" value="1" />
+                                            <input type="hidden" id="data" name="data" value="2017-01-26 15:48:04" />
+
+                                        </form>
+                                        <div class="fb-share-button" data-href="http://www.casadogui.com.br/index.php?r=confronto/curtir&id=1" data-type="button"></div>
+                                    </div>
+                                    <div id="verApostaDiv-1" class="panel-body verApostaDiv">
+
+                                        <div id="yw1" class="list-view">
+                                            <div class="summary">Total 1 result.</div>
+
+                                            <div class="items">
+                                                <div class="divApostas_17" style="padding: 0 0px 0px 2.5%;;
+margin: -30px 0 12px  0; text-align: right;width: 162px;">
+
+                                                    <div class="" style="width: 30%;display: initial;">
+                                                        <label>
+                                                            Diego
+                                                        </label>
+                                                    </div> <div class="form-group" style="width: 26px; display: inline-block;">
+
+                                                        <input class="c17" type="text" data-notblank="true" data-maxlength="2" id="placar_casa" name="placar_casa" style="width: 100%;text-align: center; border: none" value="2" readonly="readonly">
+                                                    </div> x
+                                                    <div class="form-group" style="width: 26px; display: inline-block;">
+
+                                                        <input class="v17" type="text" data-notblank="true" data-maxlength="2" id="placar_visitante" name="placar_visitante" style="width: 100%;text-align: center; border: none " value="1" readonly="readonly">
+
+                                                    </div> <div class="" style="width: 30%;display: initial;">
+                                                        <label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="keys" style="display:none" title="/index.php?r=confronto/index&amp;id=1"><span>17</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress m-t-sm">
+                                        <div class="progress-bar progress-bar-success" data-toggle="tooltip" data-original-title="1" style="width: 100%"></div>
+                                        <div class="progress-bar progress-bar-primary" data-toggle="tooltip" data-original-title="0" style="width: 0%"></div>
+                                        </di>
+                                </section>
+                             </div>
+
+                            <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+                        </section>
+                        <aside class="bg-light lter b-l aside-md hide" id="notes">
+                            <div class="wrapper">Notification</div>
+                        </aside>
+                    </section>
+                </section>
+    </section>
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.js"></script>
+    <!-- App -->
+    <script src="js/app.js"></script>
+    <script src="js/app.plugin.js"></script>
+    <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
+    <script src="js/charts/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="js/charts/flot/jquery.flot.grow.js"></script>
+    <script src="js/charts/flot/demo.js"></script>
+    <script src="js/calendar/bootstrap_calendar.js"></script>
+    <script src="js/calendar/demo.js"></script>
+    <script src="js/sortable/jquery.sortable.js"></script>
+   
+    <script src="js/OAuthClient.js"></script>
+    <script src="js/api.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/fastclick.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/photoswipe/klass.min.js"></script>
+    <script type="text/javascript" src="js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
+    <script type="text/javascript" src="js/jquery.slides.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="cordova.js"></script> <!-- This script is only for Phonegap -->
+    <script id="test" type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+</html>

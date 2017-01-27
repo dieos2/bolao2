@@ -17,21 +17,29 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'pnNLn2L3DeTjo_v_kpXrv74oX1Zg0MD3',
-        ],
+            'parsers' => [
+        'application/json' => 'yii\web\JsonParser',
+        ]
+            ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'loginUrl' => null,
         ],'urlManager' => [
     				'enablePrettyUrl' => true,
     				'showScriptName' => false,
+             'enableStrictParsing' => true,
     				'rules' => array(
     						'<controller:\w+>/<id:\d+>' => '<controller>/view',
     						'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
     						'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
     				),
+            'rules' => [
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+    ],
     		],
 
         'errorHandler' => [
@@ -59,6 +67,7 @@ $config = [
                 'clientId' => 'google_client_id',
                 'clientSecret' => 'google_client_secret',
             ],
+      
   ],
 ],
         'log' => [

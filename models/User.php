@@ -188,5 +188,6 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+    //implementar o auth para APP
    
 }

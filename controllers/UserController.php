@@ -11,35 +11,37 @@ use yii\filters\VerbFilter;
 use app\models\AccessRule;
 use app\models\UserCadastro;
 use yii\filters\AccessControl;
+use yii\rest\ActiveController;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends Controller
+class UserController extends ActiveController
 {
-   public function behaviors() {
-		return[ 
-            
-            'access' => [
-    'class' => AccessControl::className(),
-    // We will override the default rule config with the new AccessRule class
-    'ruleConfig' => [
-        'class' => AccessRule::className(),
-    ],
-   
-    'rules' => [
-        [
-            
-            'allow' => true,
-            // Allow users, moderators and admins to create
-            'roles' => [
-                UserCadastro::ROLE_ADMIN
-            ],
+   public $modelClass = 'app\models\User';
+public function behaviors() {
+            return[ 
+
+        'access' => [
+'class' => AccessControl::className(),
+// We will override the default rule config with the new AccessRule class
+'ruleConfig' => [
+    'class' => AccessRule::className(),
+],
+
+'rules' => [
+    [
+
+        'allow' => true,
+        // Allow users, moderators and admins to create
+        'roles' => [
+            UserCadastro::ROLE_ADMIN
         ],
-       
     ],
+
+],
 ], ];
-            
-            
+
+
 //            [ 'access' => [
 //                'class' => AccessControl::className(),
 //                'only' => ['index', 'view'],
@@ -61,7 +63,7 @@ class UserController extends Controller
 //						] 
 //				] 
 //		];
-	}
+    }
 
     /**
      * Lists all User models.
