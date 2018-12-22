@@ -15,6 +15,7 @@ return array(
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap'),
     'yii\\authclient\\' => array($vendorDir . '/yiisoft/yii2-authclient'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
+    'phpseclib\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'kartik\\mpdf\\' => array($vendorDir . '/kartik-v/yii2-mpdf'),
     'kartik\\form\\' => array($vendorDir . '/kartik-v/yii2-widget-activeform'),
     'kartik\\base\\' => array($vendorDir . '/kartik-v/yii2-krajee-base'),

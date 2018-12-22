@@ -31,16 +31,13 @@ $config = [
         ],'urlManager' => [
     				'enablePrettyUrl' => true,
     				'showScriptName' => false,
-             'enableStrictParsing' => true,
-    				'rules' => array(
-    						'<controller:\w+>/<id:\d+>' => '<controller>/view',
-    						'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-    						'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-    				),
+//             'enableStrictParsing' => true,
+    				
             'rules' => [
-        ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+        ['class' => 'yii\rest\UrlRule','pluralize' =>false, 'controller' => 'api/user'],
     ],
     		],
+    
 
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -67,9 +64,15 @@ $config = [
                 'clientId' => 'google_client_id',
                 'clientSecret' => 'google_client_secret',
             ],
+//       'openId' => [
+//                'class' => 'yii\authclient\clients\GoogleOAuth',
+//                'clientId' => 'google_client_id',
+//                'clientSecret' => 'google_client_secret',
+//            ],
       
   ],
 ],
+               
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -82,6 +85,11 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
+       'modules' => [
+        'api' => [
+            'class' => 'app\modules\api\ApiModule',
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {

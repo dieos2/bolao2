@@ -13,7 +13,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-    public $id_facebook;
+    public $id_auth;
     /**
      * @inheritdoc
      */
@@ -46,7 +46,7 @@ class SignupForm extends Model
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->id_facebook = $this->id_facebook;
+            $user->id_auth = $this->id_auth;
             $user->setPassword($this->password);
             $user->generateAuthKey();
             if ($user->save()) {

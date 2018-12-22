@@ -13,6 +13,8 @@ return array(
     'CGIFIMAGEHEADER' => $vendorDir . '/mpdf/mpdf/classes/gif.php',
     'CGIFLZW' => $vendorDir . '/mpdf/mpdf/classes/gif.php',
     'INDIC' => $vendorDir . '/mpdf/mpdf/classes/indic.php',
+    'Jumbojett\\OpenIDConnectClient' => $vendorDir . '/jumbojett/openid-connect-php/src/OpenIDConnectClient.php',
+    'Jumbojett\\OpenIDConnectClientException' => $vendorDir . '/jumbojett/openid-connect-php/src/OpenIDConnectClient.php',
     'MYANMAR' => $vendorDir . '/mpdf/mpdf/classes/myanmar.php',
     'OTLdump' => $vendorDir . '/mpdf/mpdf/classes/otl_dump.php',
     'PDFBarcode' => $vendorDir . '/mpdf/mpdf/classes/barcode.php',

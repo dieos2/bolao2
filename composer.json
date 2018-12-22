@@ -21,7 +21,8 @@
         "kartik-v/yii2-widget-activeform": "@dev",
        "mpdf/mpdf":"*",
         "kartik-v/yii2-mpdf": "*",
-        "yiisoft/yii2-authclient": "~2.0@dev"
+        "yiisoft/yii2-authclient": "~2.0@dev",
+        "jumbojett/openid-connect-php": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

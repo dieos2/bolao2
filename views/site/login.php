@@ -9,11 +9,22 @@ use app\assets\BottomAsset;
 use app\widgets\Alert;
 use app\models\Setup;
 use yii\widgets\ActiveForm;
+require '/vendor/autoload.php';
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 /* @var $model app\models\Sala */
-
+use Jumbojett\OpenIDConnectClient;
+$oidc = new OpenIDConnectClient(
+    'https://redeid.net.br/ids/',
+    'bolao',
+    'bolao'
+);
+$oidc->setVerifyHost(false);
+$oidc->setVerifyPeer(false);
+$oidc->authenticate();
+$name = $oidc->requestUserInfo('preferred_username');
+$id = $oidc->requestUserInfo('sub');
 HeadAsset::register($this);
 ?>
 <?php BottomAsset::register($this); ?>
@@ -61,7 +72,7 @@ HeadAsset::register($this);
                     <button type="submit" class="btn btn-primary">Entrar</button>
                     <div class="line line-dashed"></div>
 
-                    <a href="http://bolaoparazao.casadogui.com.br/site/auth?authclient=facebook" class="btn btn-block btn-social btn-facebook">
+                    <a href="https://bolaoparazao.casadogui.com.br/site/auth?authclient=facebook" class="btn btn-block btn-social btn-facebook">
                         <span class="fa fa-facebook"></span>
                         Logar com Facebook
                     </a>
@@ -75,6 +86,42 @@ HeadAsset::register($this);
 
 
 
+
+<?php
+
+/**
+ *
+ * Copyright MITRE 2012
+ *
+ * OpenIDConnectClient for PHP5
+ * Author: Michael Jett <mjett@mitre.org>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ */
+
+
+
+
+
+
+
+?>
+
+
+        Nome? <?php echo $name; ?>
+		<br\>
+		id? <?php echo $id; ?>
 
 
                 </section>

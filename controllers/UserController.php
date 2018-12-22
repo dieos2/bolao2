@@ -15,33 +15,47 @@ use yii\rest\ActiveController;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends ActiveController
+class UserController extends Controller
 {
-   public $modelClass = 'app\models\User';
-public function behaviors() {
-            return[ 
-
-        'access' => [
-'class' => AccessControl::className(),
-// We will override the default rule config with the new AccessRule class
-'ruleConfig' => [
-    'class' => AccessRule::className(),
-],
-
-'rules' => [
-    [
-
-        'allow' => true,
-        // Allow users, moderators and admins to create
-        'roles' => [
-            UserCadastro::ROLE_ADMIN
-        ],
+   
+// public function behaviors()
+//{
+//    $behaviors = parent::behaviors();
+//    $behaviors['authenticator'] = [
+//        'class' => CompositeAuth::className(),
+//        'authMethods' => [
+//            HttpBasicAuth::className(),
+//            HttpBearerAuth::className(),
+//            QueryParamAuth::className(),
+//        ],
+//    ];
+//    return $behaviors;
+//}
+    
+   public function behaviors() {
+		return[ 
+            
+            'access' => [
+    'class' => AccessControl::className(),
+    // We will override the default rule config with the new AccessRule class
+    'ruleConfig' => [
+        'class' => AccessRule::className(),
     ],
-
-],
+   
+    'rules' => [
+        [
+            
+            'allow' => true,
+            // Allow users, moderators and admins to create
+            'roles' => [
+                UserCadastro::ROLE_ADMIN
+            ],
+        ],
+       
+    ],
 ], ];
-
-
+            
+            
 //            [ 'access' => [
 //                'class' => AccessControl::className(),
 //                'only' => ['index', 'view'],
@@ -63,7 +77,7 @@ public function behaviors() {
 //						] 
 //				] 
 //		];
-    }
+	}
 
     /**
      * Lists all User models.

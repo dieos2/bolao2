@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "99c529267dd63216edf0f20c15fcb4a1",
+    "content-hash": "1325b8fb48933dbe3647800d7a00aefd",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -273,7 +273,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2015-03-20 11:07:08"
+            "time": "2015-03-20T11:07:08+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -317,7 +317,40 @@
             "keywords": [
                 "html"
             ],
-            "time": "2013-11-30 08:25:19"
+            "time": "2013-11-30T08:25:19+00:00"
+        },
+        {
+            "name": "jumbojett/openid-connect-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jumbojett/OpenID-Connect-PHP.git",
+                "reference": "0592a80ff1fb0b96ffe77c51bc2ac744a0aec81b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jumbojett/OpenID-Connect-PHP/zipball/0592a80ff1fb0b96ffe77c51bc2ac744a0aec81b",
+                "reference": "0592a80ff1fb0b96ffe77c51bc2ac744a0aec81b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.4",
+                "phpseclib/phpseclib": "2.0.1"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Bare-bones OpenID Connect client",
+            "time": "2018-12-06T14:21:49+00:00"
         },
         {
             "name": "kartik-v/mpdf",
@@ -360,7 +393,7 @@
                 "php",
                 "utf-8"
             ],
-            "time": "2015-06-18 15:13:20"
+            "time": "2015-06-18T15:13:20+00:00"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -406,7 +439,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-11-22 06:35:23"
+            "time": "2015-11-22T06:35:23+00:00"
         },
         {
             "name": "kartik-v/yii2-mpdf",
@@ -453,7 +486,7 @@
                 "utf8",
                 "yii2"
             ],
-            "time": "2015-12-03 14:15:23"
+            "time": "2015-12-03T14:15:23+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-activeform",
@@ -465,7 +498,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-activeform/zipball/59a224de3104552c55de3a6aa67138ee1b73fd70",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-activeform/zipball/1ccb21990894bf99cac2ab58605055b40ed18a7b",
                 "reference": "1ccb21990894bf99cac2ab58605055b40ed18a7b",
                 "shasum": ""
             },
@@ -500,7 +533,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-11-01 10:14:48"
+            "time": "2015-11-01T10:14:48+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -547,7 +580,96 @@
                 "php",
                 "utf-8"
             ],
-            "time": "2015-06-17 07:26:51"
+            "time": "2015-06-17T07:26:51+00:00"
+        },
+        {
+            "name": "phpseclib/phpseclib",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpseclib/phpseclib.git",
+                "reference": "ba6fb78f727cd09f2a649113b95468019e490585"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/ba6fb78f727cd09f2a649113b95468019e490585",
+                "reference": "ba6fb78f727cd09f2a649113b95468019e490585",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "~4.0",
+                "sami/sami": "~2.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "suggest": {
+                "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
+                "ext-libsodium": "SSH2/SFTP can make use of some algorithms provided by the libsodium-php extension.",
+                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
+                "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "phpseclib\\": "phpseclib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Wigginton",
+                    "email": "terrafrost@php.net",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Patrick Monnerat",
+                    "email": "pm@datasphere.ch",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Andreas Fischer",
+                    "email": "bantu@phpbb.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Hans-Jürgen Petrich",
+                    "email": "petrich@tronic-media.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Secure Communications Library - Pure-PHP implementations of RSA, AES, SSH2, SFTP, X.509 etc.",
+            "homepage": "http://phpseclib.sourceforge.net",
+            "keywords": [
+                "BigInteger",
+                "aes",
+                "asn.1",
+                "asn1",
+                "blowfish",
+                "crypto",
+                "cryptography",
+                "encryption",
+                "rsa",
+                "security",
+                "sftp",
+                "signature",
+                "signing",
+                "ssh",
+                "twofish",
+                "x.509",
+                "x509"
+            ],
+            "time": "2016-01-18T17:07:21+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -600,7 +722,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2015-09-04 05:47:20"
+            "time": "2015-09-04T05:47:20+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -688,7 +810,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-08-05 22:00:30"
+            "time": "2015-08-05T22:00:30+00:00"
         },
         {
             "name": "yiisoft/yii2-authclient",
@@ -736,7 +858,7 @@
                 "oauth",
                 "yii2"
             ],
-            "time": "2015-12-15 10:24:41"
+            "time": "2015-12-15T10:24:41+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -748,7 +870,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/3b792412bd0fdfef4e48aff3781279e28dfd19a4",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/7644ecbc447907bac1e29fc6babc4b5e747523dd",
                 "reference": "7644ecbc447907bac1e29fc6babc4b5e747523dd",
                 "shasum": ""
             },
@@ -786,7 +908,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2015-11-20 18:20:01"
+            "time": "2015-11-20T18:20:01+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -798,7 +920,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/574dcb1d101ae55be230e0c00a2428af6ec4c5c1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/87cd1f2e0dd454a837607de612b1057840effe8b",
                 "reference": "87cd1f2e0dd454a837607de612b1057840effe8b",
                 "shasum": ""
             },
@@ -833,7 +955,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2015-09-25 10:48:24"
+            "time": "2015-09-25T10:48:24+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -845,7 +967,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/2cca1bb86444a6438b0720f8c60120a400982366",
+                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/745a045c905cc595ca5698f5cd78fd7a8944c706",
                 "reference": "745a045c905cc595ca5698f5cd78fd7a8944c706",
                 "shasum": ""
             },
@@ -883,7 +1005,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2015-09-29 11:01:52"
+            "time": "2015-09-29T11:01:52+00:00"
         }
     ],
     "packages-dev": [
@@ -962,7 +1084,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2015-11-16 08:55:57"
+            "time": "2015-11-16T08:55:57+00:00"
         },
         {
             "name": "phpspec/php-diff",
@@ -996,7 +1118,7 @@
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
-            "time": "2013-11-01 13:02:21"
+            "time": "2013-11-01T13:02:21+00:00"
         },
         {
             "name": "yiisoft/yii2-codeception",
@@ -1041,7 +1163,7 @@
                 "codeception",
                 "yii2"
             ],
-            "time": "2015-11-20 08:52:21"
+            "time": "2015-11-20T08:52:21+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",
@@ -1088,7 +1210,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2015-11-20 13:52:39"
+            "time": "2015-11-20T13:52:39+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -1135,7 +1257,7 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2015-11-15 11:52:16"
+            "time": "2015-11-15T11:52:16+00:00"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -1188,14 +1310,15 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2015-11-19 14:53:57"
+            "time": "2015-11-19T14:53:57+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "kartik-v/yii2-widget-activeform": 20,
-        "yiisoft/yii2-authclient": 20
+        "yiisoft/yii2-authclient": 20,
+        "jumbojett/openid-connect-php": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

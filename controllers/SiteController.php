@@ -89,7 +89,7 @@ class SiteController extends Controller {
         }
     }
 
-     public function Autoriza() {
+     public function actionAutoriza() {
        
         
         $model = new LoginForm();
@@ -196,11 +196,11 @@ class SiteController extends Controller {
           $user = User::find()->where(['=','email',$userAttributes['email']])->one();
     if($user != null){
         Yii::$app->user->login($user);  
-        if($user->id_facebook != 0){
-        copy('http://graph.facebook.com/'.$user->id_facebook.'/picture?type=large', 'images/'.$user->username.'.jpeg');
+        if($user->id_auth != 0){
+        copy('http://graph.facebook.com/'.$user->id_auth.'/picture?type=large', 'images/'.$user->username.'.jpeg');
         }else{
-            $user->id_facebook = $userAttributes['id'];
-            copy('http://graph.facebook.com/'.$user->id_facebook.'/picture?type=large', 'images/'.$user->username.'.jpeg');
+            $user->id_auth = $userAttributes['id'];
+            copy('http://graph.facebook.com/'.$user->id_auth.'/picture?type=large', 'images/'.$user->username.'.jpeg');
             $user->save();
         }
         return $this->goHome();
@@ -211,7 +211,7 @@ class SiteController extends Controller {
             $modelCadastro->email = $userAttributes['email'];
             $modelCadastro->username = $userAttributes['id'];
             $modelCadastro->password = $userAttributes['id'];
-            $modelCadastro->id_facebook = $userAttributes['id'];
+            $modelCadastro->id_auth = $userAttributes['id'];
             $nome = explode(" ",$userAttributes['name']); 
         if ($user = $modelCadastro->signup()) {
             $modelPerfil = new Perfil();
@@ -219,7 +219,7 @@ class SiteController extends Controller {
             $modelPerfil->data = date('Y-m-d');
             $modelPerfil->nome = $nome[0];
             $modelPerfil->sobrenome = $nome[1];
-            copy('http://graph.facebook.com/'.$modelCadastro->id_facebook.'/picture?type=large', 'images/'.$modelCadastro->username.'.jpeg');
+            copy('http://graph.facebook.com/'.$modelCadastro->username.'/picture?type=large', 'images/'.$modelCadastro->username.'.jpeg');
             $modelPerfil->foto = $modelCadastro->username.'.jpeg';
 	//$modelPerfil->id_facebook = $modelCadastro->id_facebook;
             $modelPerfil->save();
