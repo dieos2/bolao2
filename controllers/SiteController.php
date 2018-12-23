@@ -15,6 +15,8 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use app\models\User;
 use app\models\Perfil;
+require '/vendor/autoload.php';
+        use Jumbojett\OpenIDConnectClient;
 /**
  * Site controller
  */
@@ -75,18 +77,61 @@ class SiteController extends Controller {
             return $this->goHome();
         }
         
-        $model = new LoginForm();
-         if ($model->load(Yii::$app->request->get()) && $model->login()) {
-          return ['access_token' => Yii::$app->user->identity->getAuthKey()];
-         }
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->renderPartial('login', [
-                        'model' => $model,
-                      
-            ]);
+$oidc = new OpenIDConnectClient(
+    'https://redeid.net.br/ids/',
+    'bolao',
+    'bolao'
+);
+$oidc->setVerifyHost(false);
+$oidc->setVerifyPeer(false);
+$oidc->authenticate();
+
+$id = $oidc->requestUserInfo('sub');
+        //busca rede para
+        $uri = 'http://redepara.com.br:8019/usuarios/'.$id;
+    $reqPrefs['http']['method'] = 'GET';
+    $reqPrefs['http']['header'] = 'X-Auth-Token: a41e5fabfe4e47c3a1c6182573bf8297';
+    $stream_context = stream_context_create($reqPrefs);
+    $response = file_get_contents($uri, false, $stream_context);
+    $usuarioRede = json_decode($response);
+     echo($usuarioRede->Foto);
+    //loga ou cria
+     $user = User::find()->where(['=','id_auth',$usuarioRede->UsuarioRedeId])->one();
+    if($user != null){
+        Yii::$app->user->login($user);  
+      
+        return $this->goHome();
+    }
+    else{
+           
+            $modelCadastro = new SignupForm();
+            $modelCadastro->email = $usuarioRede->Email;
+            $modelCadastro->username = $usuarioRede->FirstName;
+            $modelCadastro->password = $usuarioRede->FirstName;
+            $modelCadastro->id_auth = $usuarioRede->UsuarioRedeId;
+            
+        if ($user = $modelCadastro->signup()) {
+            $modelPerfil = new Perfil();
+            $modelPerfil->id = $user->id;
+            $modelPerfil->data = date('Y-m-d');
+            $modelPerfil->nome = $usuarioRede->FirstName;
+            $modelPerfil->sobrenome = $usuarioRede->LastName;
+           if(is_null($usuarioRede->Foto) == 1){
+           $modelPerfil->foto - "user.png";
+           }else{
+               
+                $modelPerfil->foto = $usuarioRede->Foto;
+           }
+	//$modelPerfil->id_facebook = $modelCadastro->id_facebook;
+            $modelPerfil->save();
+            
+            if (Yii::$app->getUser()->login($user)) {
+                return $this->goHome();
+            }
         }
+        }
+   
+       
     }
 
      public function actionAutoriza() {
@@ -193,7 +238,7 @@ class SiteController extends Controller {
 
         //cuida de logar
         
-          $user = User::find()->where(['=','email',$userAttributes['email']])->one();
+          $user = User::find()->where(['=','id_auth',$userAttributes['id']])->one();
     if($user != null){
         Yii::$app->user->login($user);  
         if($user->id_auth != 0){

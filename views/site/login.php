@@ -9,22 +9,12 @@ use app\assets\BottomAsset;
 use app\widgets\Alert;
 use app\models\Setup;
 use yii\widgets\ActiveForm;
-require '/vendor/autoload.php';
+
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 /* @var $model app\models\Sala */
-use Jumbojett\OpenIDConnectClient;
-$oidc = new OpenIDConnectClient(
-    'https://redeid.net.br/ids/',
-    'bolao',
-    'bolao'
-);
-$oidc->setVerifyHost(false);
-$oidc->setVerifyPeer(false);
-$oidc->authenticate();
-$name = $oidc->requestUserInfo('preferred_username');
-$id = $oidc->requestUserInfo('sub');
+
 HeadAsset::register($this);
 ?>
 <?php BottomAsset::register($this); ?>
